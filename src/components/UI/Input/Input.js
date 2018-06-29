@@ -4,13 +4,8 @@ import classes from './Input.css';
 
 const imput = (props) => {
     let inputElement = null;
-import classes from './Input.css';
-
-
-    switch (props.inputType) {
+    switch (props.inputtype) {
         case ('input'):
-import classes from './Input.css';
-
             inputElement = <input className={classes.InputElement} {...props} />;
             break;
         case ('textarea'):
