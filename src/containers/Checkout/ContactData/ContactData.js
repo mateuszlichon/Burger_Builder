@@ -18,7 +18,8 @@ class ContactData extends Component {
                 value: '',
                 validation: {
                     required: true
-                }
+                },
+                valid: false
             },
             street: {
                 elementType: 'input',
@@ -29,7 +30,8 @@ class ContactData extends Component {
                 value: '',
                 validation: {
                     required: true
-                }
+                },
+                valid: false
             },
             zipCode: {
                 elementType: 'input',
@@ -40,7 +42,8 @@ class ContactData extends Component {
                 value: '',
                 validation: {
                     required: true
-                }
+                },
+                valid: false
             },
             country: {
                 elementType: 'input',
@@ -51,7 +54,8 @@ class ContactData extends Component {
                 value: '',
                 validation: {
                     required: true
-                }
+                },
+                valid: false
             },
             email: {
                 elementType: 'input',
@@ -62,7 +66,8 @@ class ContactData extends Component {
                 value: '',
                 validation: {
                     required: true
-                }
+                },
+                valid: false
             },
             deliveryMethod: {
                 elementType: 'select',
@@ -98,6 +103,16 @@ class ContactData extends Component {
             .catch(error => {
                 this.setState({ loading: false });
             });
+    }
+
+    checkValidity(value, rules) {
+        let isValid = false;
+
+        if(rules.required) {
+            isValid = value.trim() !== '';
+        }
+
+        return isValid;
     }
 
     inputChangedHanlder = (event, inputIdentifier) => {
